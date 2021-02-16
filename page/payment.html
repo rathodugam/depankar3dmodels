@@ -17,6 +17,7 @@
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
      <!-- external style sheet  -->
      <link rel="stylesheet" href="../css/payment.css">
+     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css'><link rel="stylesheet" href="./style.css">
  
      <!-- favicon icon  -->
      <link rel="icon" href="../images/faviconIcon.jpg" type="image/gif" sizes="16x16">
@@ -43,24 +44,58 @@
                 </div>
         </div>
         <div class="container">
-            <div class="row d-flex justify-content-center mt-5 mb-5">
-                <div class="col-md-6">
-                    <div id="myCarousel" class="carousel slide" data-ride="carousel" align="center">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active"> <img src="../Images/products/sig1aa.png" class="rounded"> </div>
-                            <div class="carousel-item"> <img src="../Images/products/wf2.png" class="rounded"> </div>
-                            <div class="carousel-item"> <img src="../Images/products/wf5.png" class="rounded"> </div>
-                            <div class="carousel-item"> <img src="../Images/products/wf6.png" class="rounded"> </div>
-                        </div>
-                        <ol class="carousel-indicators list-inline">
-                            <li class="list-inline-item active"> <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#myCarousel"> <img src="../Images/products/sig1aa.png" class="img-fluid rounded"> </a> </li>
-                            <li class="list-inline-item"> <a id="carousel-selector-1" data-slide-to="1" data-target="#myCarousel"> <img src="../Images/products/wf2.png" class="img-fluid rounded"> </a> </li>
-                            <li class="list-inline-item"> <a id="carousel-selector-2" data-slide-to="2" data-target="#myCarousel"> <img src="../Images/products/wf5.png" class="img-fluid rounded"> </a> </li>
-                            <li class="list-inline-item"> <a id="carousel-selector-3" data-slide-to="3" data-target="#myCarousel"> <img src="../Images/products/wf6.png" class="img-fluid rounded"> </a> </li>
-                        </ol>
-                    </div>
+          <div class="synch-carousels">  
+            <div class="left child">
+              <div class="gallery">
+                <div class="item">
+                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/gallery1.jpg" alt="">
                 </div>
+                <div class="item">
+                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/gallery2.jpg" alt="">
+                </div>
+                <div class="item">
+                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/gallery3.jpg" alt="">
+                </div>
+                <div class="item">
+                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/gallery4.jpg" alt="">
+                </div>
+                <div class="item">
+                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/gallery5.jpg" alt="">
+                </div>
+              </div>
             </div>
+        
+            <div class="right child">
+              <div class="gallery2">
+                <div class="item">
+                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/gallery1.jpg" alt="" />
+                </div>
+                <div class="item">
+                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/gallery2.jpg" alt="" />
+                </div>
+                <div class="item">
+                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/gallery3.jpg" alt="" />
+                </div>
+                <div class="item">
+                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/gallery4.jpg" alt="" />
+                </div>
+                <div class="item">
+                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/gallery5.jpg" alt="" />
+                </div>
+              </div>
+              <div class="nav-arrows">
+                <button class="arrow-left">
+                    <i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
+                </button>
+                <button class="arrow-right">
+                    <i class="fa fa-arrow-right fa-2x" aria-hidden="true"></i>
+                  </button>
+              </div>
+              <div class="photos-counter">
+                <span></span><span></span>
+              </div>
+            </div>
+          </div>
         </div>
     </section>
 
@@ -110,6 +145,88 @@
     <p>All Right Reserv</p>
 </div>
 <!-- end footer  -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.10/lodash.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js'></script>
+<script>
+    const $left = $(".left");
+const $gl = $(".gallery");
+const $gl2 = $(".gallery2");
+const $photosCounterFirstSpan = $(".photos-counter span:nth-child(1)");
 
+$gl2.on("init", (event, slick) => {
+  $photosCounterFirstSpan.text(`${slick.currentSlide + 1}/`);
+  $(".photos-counter span:nth-child(2)").text(slick.slideCount);
+});
+
+$gl.slick({
+  rows: 0,
+  slidesToShow: 2,
+  arrows: false,
+  draggable: false,
+  useTransform: false,
+  mobileFirst: true,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 3
+      }
+    },
+    {
+      breakpoint: 1023,
+      settings: {
+        slidesToShow: 1,
+        vertical: true
+      }
+    }
+  ]
+});
+
+$gl2.slick({
+  rows: 0,
+  useTransform: false,
+  prevArrow: ".arrow-left",
+  nextArrow: ".arrow-right",
+  fade: true,
+  asNavFor: $gl
+});
+
+function handleCarouselsHeight() {
+  if (window.matchMedia("(min-width: 1024px)").matches) {
+    const gl2H = $(".gallery2").height();
+    $left.css("height", gl2H);
+  } else {
+    $left.css("height", "auto");
+  }
+}
+
+$(window).on("load", () => {
+  handleCarouselsHeight();
+  setTimeout(() => {
+    $(".loading").fadeOut();
+    $("body").addClass("over-visible");
+  }, 300);
+});
+
+$(window).on(
+  "resize",
+  _.debounce(() => {
+    handleCarouselsHeight();
+    /*You might need this code in your projects*/
+    //$gl1.slick("resize");
+    //$gl2.slick("resize");
+  }, 200)
+);
+
+$(".gallery .item").on("click", function() {
+  const index = $(this).attr("data-slick-index");
+  $gl2.slick("slickGoTo", index);
+});
+
+$gl2.on("afterChange", (event, slick, currentSlide) => {
+  $photosCounterFirstSpan.text(`${slick.currentSlide + 1}/`);
+});
+</script>
 </body>
 </html>

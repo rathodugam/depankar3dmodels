@@ -22,13 +22,11 @@ a:hover {
 }
 
 .bg-dark {
-    background-color: #2C3E50 !important;
+    background-color: #854768 !important
 }
 
 /*-- services --*/
-.service {
-  
-}
+
 .mb-60 {
     margin-bottom: 60px;
 }
@@ -112,7 +110,7 @@ a:hover {
     position: relative;
     z-index: 2;
     clear: both;
-    background-color: #f5f0f0;
+    background-color: #9aa100;
     width: 100%;
 }
 
@@ -132,7 +130,7 @@ a:hover {
     padding: 100px 0px;
     text-align: center;
     color: white;
-    background-color: #4A544F;
+    background-color: #854768;
 }
 .name {
     font-weight: bold;
@@ -370,7 +368,7 @@ a:hover {
 /*--//end products --*/
 /* coontact us  */
 .contact{
-    background-color: cadetblue;
+    background-color: #9aa100;
     padding: 100px 0px;
 }
 .contactus{
@@ -432,7 +430,7 @@ label {
 .footer {
     clear: both;
     padding: 100px 0px;
-    background-color: #2C3E50;
+    background-color: #854768;
     color: #fff;
     margin-top: 10px;
 }
